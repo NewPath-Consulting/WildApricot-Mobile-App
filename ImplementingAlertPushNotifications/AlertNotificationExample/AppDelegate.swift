@@ -23,14 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if application.isRegisteredForRemoteNotifications == true {
             print ("already registered, not calling")
         } else {
-            UIApplication.shared.registerForRemoteNotifications()
+//            UIApplication.shared.registerForRemoteNotifications()
             //should this just use `application.shared.registerForRemoteNotifications()` ?
             print("Is registered? (after trying)", application.isRegisteredForRemoteNotifications)
 
             UNUserNotificationCenter.current().delegate = self
         }
-        //NOTE: method code currently does not auto-send token.
-        //TODO: auto send token
+        //HACKED BACK TO ORIGINAL: always register; send token, show token
+        UIApplication.shared.registerForRemoteNotifications()
         return true
     }
 
@@ -76,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             return
         }
 
-        viewController.showDeviceToken(error.localizedDescription)
+//        viewController.showDeviceToken(error.localizedDescription)
     }
 
     func forwardTokenToServer(tokenString: String) {

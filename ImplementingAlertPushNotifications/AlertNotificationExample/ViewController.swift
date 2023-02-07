@@ -15,7 +15,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     @IBAction func subscribeToNotifications(_ sender: Any) {
@@ -40,7 +39,7 @@ class ViewController: UIViewController {
                     board.string = message
                 })
                 alertModal.addAction(copyAction)
-//                self.present(alertModal, animated: true)
+                self.present(alertModal, animated: true)
 
             }
         
