@@ -21,14 +21,27 @@ class ViewController: UIViewController {
     @IBAction func subscribeToNotifications(_ sender: Any) {
         let center = UNUserNotificationCenter.current()
             center.getNotificationSettings { (settings) in
+
+                var message:String
                 if(settings.authorizationStatus == .authorized)
                 {
-                    print("Button Check: notifcations are authorized")
+                    message = "notifications are authorized"
+                    print("Button Check: notifications are authorized")
                 }
                 else
                 {
-                    print("Button Check: notifcations are *not* authorized")
+                    message = "notifications are *not* authorized"
+                    print("Button Check: notifications are *not* authorized")
                 }
+                let alertModal = UIAlertController(title: "test", message: message, preferredStyle: .actionSheet)
+                let copyAction = UIAlertAction(title: "copy to pasteboard", style: UIAlertAction.Style.default, handler:  {_ in
+                    //(action: UIALertAction!)
+                    let board = UIPasteboard.general
+                    board.string = message
+                })
+                alertModal.addAction(copyAction)
+//                self.present(alertModal, animated: true)
+
             }
         
         let userNotificationCenter = UNUserNotificationCenter.current()
@@ -48,9 +61,7 @@ class ViewController: UIViewController {
             board.string = tokenString
         })
         alertModal.addAction(copyAction)
-        
-        //hackout
-//        present(alertModal, animated: true)
+        present(alertModal, animated: true)
         
     }
 
