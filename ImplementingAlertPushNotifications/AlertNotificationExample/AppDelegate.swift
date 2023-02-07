@@ -17,15 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print (#function)
         
+        // MARK: Remote-notification registration
         print("Is registered? (inital)", application.isRegisteredForRemoteNotifications)
+
         if application.isRegisteredForRemoteNotifications == true {
             print ("already registered, not calling")
         } else {
             UIApplication.shared.registerForRemoteNotifications()
-            UNUserNotificationCenter.current().delegate = self
+            //should this just use `application.shared.registerForRemoteNotifications()` ?
             print("Is registered? (after trying)", application.isRegisteredForRemoteNotifications)
 
+            UNUserNotificationCenter.current().delegate = self
         }
+        //NOTE: method code currently does not auto-send token.
         //TODO: auto send token
         return true
     }
@@ -58,12 +62,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Forward the token to your provider, using a custom method.
         self.forwardTokenToServer(tokenString: deviceTokenString)
         
-//        deviceTokenFoo = deviceTokenString
-        
         guard let viewController = UIApplication.shared.windows.first!.rootViewController as? ViewController else {
             return
         }
-        print (#function)
         viewController.showDeviceToken(deviceTokenString)
     }
 
