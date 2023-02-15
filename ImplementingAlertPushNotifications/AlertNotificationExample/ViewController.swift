@@ -15,6 +15,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UIApplication.shared.isRegisteredForRemoteNotifications == true {
+            print ("OVERLOG registered, ")
+        } else {
+
+            print ("OVERLOG: not  registered")
+        }
+
     }
 
     @IBAction func subscribeToNotifications(_ sender: Any) {
@@ -39,8 +46,10 @@ class ViewController: UIViewController {
                     board.string = message
                 })
                 alertModal.addAction(copyAction)
-                self.present(alertModal, animated: true)
-
+//                self.present(alertModal, animated: false)
+                DispatchQueue.main.async {
+                    self.present(alertModal, animated: false)
+                }
             }
         
         let userNotificationCenter = UNUserNotificationCenter.current()
@@ -60,7 +69,7 @@ class ViewController: UIViewController {
             board.string = tokenString
         })
         alertModal.addAction(copyAction)
-        present(alertModal, animated: true)
+        present(alertModal, animated: false)
         
     }
 

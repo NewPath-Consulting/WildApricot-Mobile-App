@@ -13,22 +13,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
 //    var deviceTokenFoo: String
     
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions
+                     launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print (#function)
         
         // MARK: Remote-notification registration
         print("Is registered? (inital)", application.isRegisteredForRemoteNotifications)
 
-        if application.isRegisteredForRemoteNotifications == true {
-            print ("already registered, not calling")
-        } else {
-//            UIApplication.shared.registerForRemoteNotifications()
-            //should this just use `application.shared.registerForRemoteNotifications()` ?
-            print("Is registered? (after trying)", application.isRegisteredForRemoteNotifications)
+        // hackin
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings { (settings) in
 
-            UNUserNotificationCenter.current().delegate = self
+//            var message:String
+            if(settings.authorizationStatus == .authorized)
+            {
+//                message = "notifications are authorized"
+                print("Settings check: notifications are authorized")
+            } else {
+                print ("Not authorized")
+            }
+            //hack out
         }
+        print ("END PRE INIT BLOCK")
+
+//        if application.isRegisteredForRemoteNotifications == true {
+//            print ("already registered, not calling")
+//        } else {
+//            print ("not currently registered, so calling")
+//
+//            UIApplication.shared.registerForRemoteNotifications()
+//            //should this just use `application.shared.registerForRemoteNotifications()` ?
+//            print("Is registered? (after trying)", application.isRegisteredForRemoteNotifications)
+//
+//            UNUserNotificationCenter.current().delegate = self
+//        }
         //HACKED BACK TO ORIGINAL: always register; send token, show token
         UIApplication.shared.registerForRemoteNotifications()
         return true
@@ -64,6 +82,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         guard let viewController = UIApplication.shared.windows.first!.rootViewController as? ViewController else {
             return
+        }
+
+        //overlogging
+
+        if application.isRegisteredForRemoteNotifications == true {
+            print ("OVERLOG registered, ")
+        } else {
+
+            print ("OVERLOG: not  registered")
         }
         viewController.showDeviceToken(deviceTokenString)
     }
