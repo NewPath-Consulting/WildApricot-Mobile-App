@@ -18,9 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print (#function)
         
         // MARK: Remote-notification registration
-        print("Is registered? (inital)", application.isRegisteredForRemoteNotifications)
+        print(#function, "isRegisteredForRemoteNotifications? (inital)", application.isRegisteredForRemoteNotifications)
 
         // hackin
+        print (#function, "create `UNUserNotificationCenter`")
         let center = UNUserNotificationCenter.current()
         center.getNotificationSettings { (settings) in
 
@@ -28,13 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if(settings.authorizationStatus == .authorized)
             {
 //                message = "notifications are authorized"
-                print("Settings check: notifications are authorized")
+                print(#function, "Settings check: notifications are authorized")
             } else {
-                print ("Not authorized")
+                print(#function, "Settings check: Not authorized")
             }
             //hack out
         }
-        print ("END PRE INIT BLOCK")
+        print (#function, "END INIT-STATUS BLOCK")
 
 //        if application.isRegisteredForRemoteNotifications == true {
 //            print ("already registered, not calling")
@@ -48,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //            UNUserNotificationCenter.current().delegate = self
 //        }
         //HACKED BACK TO ORIGINAL: always register; send token, show token
+        print (#function, "call registerForRemoteNotifications()")
         UIApplication.shared.registerForRemoteNotifications()
         return true
     }
@@ -87,10 +89,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //overlogging
 
         if application.isRegisteredForRemoteNotifications == true {
-            print ("OVERLOG registered, ")
+            print ("OVERLOG1: registered, ")
         } else {
 
-            print ("OVERLOG: not  registered")
+            print ("OVERLOG1: not registered")
         }
         viewController.showDeviceToken(deviceTokenString)
     }
@@ -116,7 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let name = UIDevice.current.name
         let version = UIDevice.current.systemVersion
         let modelName = UIDevice.current.model
-        print("vendor+device UUID",udid ?? "")    // example: D774EAE3F447445F9D5FE2B3B699ADB1
+//        print("vendor+device UUID",udid ?? "")    // example: D774EAE3F447445F9D5FE2B3B699ADB1
 //        print(name)          // example: iPhone XR
 //        print(version)       // example: 12.1
 //        print(modelName)     // example: iPhone
@@ -138,8 +140,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
 
         let task = URLSession.shared.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
-            print ("sending URL:", url)
-            print ("response is:", response as Any)
+//            print ("sending URL:", url)
+//            print ("response is:", response as Any)
             if error != nil {
                 // Handle the error
                 return

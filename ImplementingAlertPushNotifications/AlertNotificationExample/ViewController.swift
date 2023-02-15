@@ -16,10 +16,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if UIApplication.shared.isRegisteredForRemoteNotifications == true {
-            print ("OVERLOG registered, ")
+            print ("OVERLOG2 registered, ")
         } else {
 
-            print ("OVERLOG: not  registered")
+            print ("OVERLOG2: not registered")
         }
 
     }
@@ -56,6 +56,7 @@ class ViewController: UIViewController {
         userNotificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             print("Permission granted: \(granted)")
         }
+        print ("isRegisteredForRemoteNotifications", UIApplication.shared.isRegisteredForRemoteNotifications)
 //        self.shared.forward
     }
 
