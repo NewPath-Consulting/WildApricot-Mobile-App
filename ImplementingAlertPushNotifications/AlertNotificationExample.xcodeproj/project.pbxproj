@@ -329,7 +329,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AlertNotificationExample${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "Alert Notification Example";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -358,7 +358,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AlertNotificationExample${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "Alert Notification Example";
 				PROVISIONING_PROFILE_SPECIFIER = "";
