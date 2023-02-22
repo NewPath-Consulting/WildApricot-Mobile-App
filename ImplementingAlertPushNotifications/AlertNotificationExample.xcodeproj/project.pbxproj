@@ -318,8 +318,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AlertNotificationExample/Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = RRR3AD73AD;
 				INFOPLIST_FILE = AlertNotificationExample/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "NewPath AlertNotificationExample";
@@ -328,6 +329,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AlertNotificationExample${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "Alert Notification Example";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -345,8 +347,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AlertNotificationExample/Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = RRR3AD73AD;
 				INFOPLIST_FILE = AlertNotificationExample/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "NewPath AlertNotificationExample";
@@ -355,6 +358,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AlertNotificationExample${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "Alert Notification Example";
 				PROVISIONING_PROFILE_SPECIFIER = "";
