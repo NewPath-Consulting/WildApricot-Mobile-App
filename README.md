@@ -1,5 +1,5 @@
 # WildApricot Mobile App
-A custom app framework for WildApricot cusfomers.
+A custom app framework for WildApricot customers.
 
 Features include:
 - custom icon
