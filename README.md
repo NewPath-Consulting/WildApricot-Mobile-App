@@ -26,7 +26,7 @@ ATM, the "type" is defined by the customer-relationship.
 
 ## Request-types
 
-"Cold call" - a website withi no existing customer releationship
-"Cold dmeo" - customer relationship, but app is being made before the customer is demoed.
-"Customer (requiested) build" - customer has requested an app, for test flight, and is commited to providing required assets.
-"Release build" - customer has selected a variety of optional features, but commited propvide the assets required for those features.
+- "Cold call" - a website withi no existing customer releationship
+- "Cold dmeo" - customer relationship, but app is being made before the customer is demoed.
+- "Customer (requiested) build" - customer has requested an app, for test flight, and is commited to providing required assets.
+- "Release build" - customer has selected a variety of optional features, but commited propvide the assets required for those features.
