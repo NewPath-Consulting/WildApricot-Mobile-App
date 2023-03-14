@@ -1,8 +1,32 @@
 # WildApricot Mobile App
-A custom app framework for WildApricot cusfomers.
+A custom app framework for WildApricot customers.
 
-Features include:
+"Wishlist Features"
 - custom icon
 - loads the website
 - custom UI shortcuts
 - custom notifications
+
+---
+
+# Current/Status
+
+## Mobile app of a web site
+
+### Requirements - Assets
+- URL of web site
+- Image (for initial build) - needed for "Home Screen" (Springboard.app)
+- [Optional] - name of app for "Home Screen" (Springboard.app)
+
+# Website Request
+
+"Assets" are a list of items needed for creating a custom app.
+The list will vary based on the type of app being created.
+ATM, the "type" is defined by the customer-relationship.
+
+## Request-types
+
+- "Cold call" - a website withi no existing customer releationship
+- "Cold dmeo" - customer relationship, but app is being made before the customer is demoed.
+- "Customer (requiested) build" - customer has requested an app, for test flight, and is commited to providing required assets.
+- "Release build" - customer has selected a variety of optional features, but commited propvide the assets required for those features.
