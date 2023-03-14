@@ -16,25 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
                      launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print (#function)
-        
+        // When the app launch after user tap on notification (originally was not running / not in background)
+        if(launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification] != nil){
+            // your code here
+            print ("REMOTE!")
+            //NOTE: this is not usable from the usual run from Xcode solution.
+        }
+
         // MARK: Remote-notification registration
         print(#function, "isRegisteredForRemoteNotifications? (inital)", application.isRegisteredForRemoteNotifications)
 
-        // hackin
         print (#function, "create `UNUserNotificationCenter`")
         let center = UNUserNotificationCenter.current()
         center.getNotificationSettings { (settings) in
 
-//            var message:String
-            if(settings.authorizationStatus == .authorized)
-            {
-//                message = "notifications are authorized"
+            if (settings.authorizationStatus == .authorized) {
                 print(#function, "Settings check: notifications are authorized")
             } else {
                 print(#function, "Settings check: Not authorized")
             }
-            //hack out
+
         }
+        print ("setting UNUN delegate")
+        UNUserNotificationCenter.current().delegate = self
         print (#function, "END INIT-STATUS BLOCK")
 
 //        if application.isRegisteredForRemoteNotifications == true {
@@ -48,10 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //
 //            UNUserNotificationCenter.current().delegate = self
 //        }
-        //HACKED BACK TO ORIGINAL: always register; send token, show token
-        print (#function, "call registerForRemoteNotifications()")
+        // HACKED BACK TO ORIGINAL: always register; send token, show token
+        print (#function, "calling: registerForRemoteNotifications()")
         UIApplication.shared.registerForRemoteNotifications()
-        UNUserNotificationCenter.current().delegate = self
         return true
     }
 
@@ -213,8 +216,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
+        let application = UIApplication.shared
+
+          if(application.applicationState == .active){
+            print("user tapped the notification bar when the app is in foreground")
+          }
+
+          if(application.applicationState == .inactive)
+          {
+            print("user tapped the notification bar when the app is in background")
+          }
+
         let userInfo = response.notification.request.content.userInfo
-        print("User info \(userInfo)")
+        let aps = userInfo["aps"] as? [String: Any]
+        let alert = aps?["alert"] as? [String: String]
+        let title = alert?["title"]
+        let body = alert?["body"]
+        print(title ?? "nil")
+        print(body ?? "nil")
+        //        print("User info \(userInfo)")
+//        print("body", userInfo["body"] as? String)
         guard let specialName = userInfo["special"] as? String,
               let specialPriceString = userInfo["price"] as? String,
               let specialPrice = Float(specialPriceString) else {
