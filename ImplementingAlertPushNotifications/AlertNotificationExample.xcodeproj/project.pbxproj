@@ -320,7 +320,7 @@
 				CODE_SIGN_ENTITLEMENTS = AlertNotificationExample/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = RRR3AD73AD;
 				INFOPLIST_FILE = AlertNotificationExample/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "NewPath AlertNotificationExample";
@@ -349,7 +349,7 @@
 				CODE_SIGN_ENTITLEMENTS = AlertNotificationExample/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = RRR3AD73AD;
 				INFOPLIST_FILE = AlertNotificationExample/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "NewPath AlertNotificationExample";

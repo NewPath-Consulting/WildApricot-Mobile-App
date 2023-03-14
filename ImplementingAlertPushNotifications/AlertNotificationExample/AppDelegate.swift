@@ -51,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //HACKED BACK TO ORIGINAL: always register; send token, show token
         print (#function, "call registerForRemoteNotifications()")
         UIApplication.shared.registerForRemoteNotifications()
+        UNUserNotificationCenter.current().delegate = self
         return true
     }
 
@@ -128,7 +129,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             URLQueryItem(name: "uid", value: udid),
             URLQueryItem(name: "name", value: name),
             URLQueryItem(name: "version", value: version),
-            URLQueryItem(name: "modelName", value: modelName)
+            URLQueryItem(name: "modelName", value: modelName),
+            URLQueryItem(name: "prod", value: "true"),
+            URLQueryItem(name: "bundleID", value: "com.example.apple-samplecode.AlertNotificationExampleRRR3AD73AD")
         ]
         
 //        var urlComps = URLComponents(string: "www.example.com/register")!
@@ -140,7 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
 
         let task = URLSession.shared.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
-//            print ("sending URL:", url)
+            print ("sending URL:", url)
 //            print ("response is:", response as Any)
             if error != nil {
                 // Handle the error
@@ -180,6 +183,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
              willPresent notification: UNNotification,
              withCompletionHandler completionHandler:
                 @escaping (UNNotificationPresentationOptions) -> Void) {
+        print (#function, notification.date)
+        print (#function, notification)
 //       if notification.request.content.categoryIdentifier ==
 //                "MEETING_INVITATION" {
 //          // Retrieve the meeting details.
@@ -236,5 +241,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Show the cart so the application is in the proper state
         // after opening a notification.
     }
-
 }
