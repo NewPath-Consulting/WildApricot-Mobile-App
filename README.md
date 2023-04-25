@@ -2,10 +2,11 @@
 A custom app framework for WildApricot customers.
 
 "Wishlist Features"
-- custom icon
-- loads the website
+√ custom icon
+√ loads the website
+√ custom notifications
+
 - custom UI shortcuts
-- custom notifications
 
 ---
 
