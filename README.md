@@ -2,6 +2,7 @@
 A custom app framework for WildApricot customers.
 
 "Wishlist Features"
+
 √ custom icon
 √ loads the website
 √ custom notifications
@@ -11,6 +12,10 @@ A custom app framework for WildApricot customers.
 ---
 
 # Current/Status
+
+(5) -> WORKING: push notifications will open "external" URLs (from other sites)
+(4) -> CURRENT: in TestFlight - fixed "crash when tapping on push notification (banner) when body wasn't a URL"
+(3) NEW: App will display the URL in the body of a notification, if the banner is tapped by user.
 
 ## Mobile app of a web site
 
